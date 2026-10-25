@@ -1,22 +1,34 @@
-# #9 Add attractive UI - dark theme + Sankey visual
-# Power BI Dark Theme + Sankey for CareFlow
 
-# Dark Theme Colors
-theme = {
-  "background": "#121212",
-  "card_bg": "#1E1E1E",
-  "text": "#FFFFFF",
-  "blue": "#0078D4"
-}
-print("Dark theme applied:", theme)
+# CareFlow – Clinical Pathway Process Mining
 
-# Sankey Visual Data for Power BI
-import pandas as pd
-df = pd.read_csv('clinical_event_log.csv')
-df = df.sort_values(['CaseID','Timestamp'])
-df['Next'] = df.groupby('CaseID')['Activity'].shift(-1)
-sankey_data = df.dropna().groupby(['Activity','Next']).size().reset_index(name='Flow')
-sankey_data.to_csv('sankey_for_powerbi.csv', index=False)
-print("Sankey visual data ready:")
-print(sankey_data.head())
-print("#9 Done - Attractive UI ready for Power BI")
+## Project Overview
+CareFlow aims to analyze clinical event logs to understand patient pathways, measure journey durations, identify potential bottlenecks, and present findings through a Power BI dashboard.
+
+## Objectives
+- Understand and validate the clinical event log.
+- Discover patient activity sequences using process mining.
+- Analyze pathway variants and repeated activities.
+- Calculate case journey duration and event-to-event elapsed time.
+- Prepare an interactive dashboard for analytical findings.
+
+## Technology Stack
+- Python
+- Pandas
+- PM4Py
+- Matplotlib
+- Power BI
+- GitHub
+
+## Project Status
+Initial setup and dataset acquisition are in progress.
+Actual dataset analysis and dashboard findings are pending dataset availability.
+
+## Planned Deliverables
+- Data dictionary and data-quality report
+- Process map and pathway analysis
+- Case-duration and transition-time summaries
+- Power BI dashboard
+- Project documentation and review presentation
+
+## Data Privacy
+No identifiable patient information should be committed to this repository.
